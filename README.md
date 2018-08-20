@@ -8,8 +8,8 @@ It:
 
 - Generates a catalog of available data in Platform Purple
 - Extracts the following resources:
-  - Events ([source](../../blob/master/tap_gnip/streams/tweets.py))
-  - Transactions ([source](../../blob/master/tap_gnip/streams/tweet_engagements.py))
+  - Events ([source](../../blob/master/tap_platformpurple/streams/events.py))
+  - Transactions ([source](../../blob/master/tap_platformpurple/streams/transactions.py))
 
 ### Quick Start
 
