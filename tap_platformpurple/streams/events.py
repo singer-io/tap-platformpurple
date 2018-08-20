@@ -1,0 +1,10 @@
+from tap_platformpurple.streams.base import BasePlatformPurpleStream
+
+
+class EventsStream(BasePlatformPurpleStream):
+    TABLE = 'events'
+    KEY_PROPERTIES = ["docID"]
+    API_METHOD = 'POST'
+
+    def get_url(self):
+        return 'https://api-v4.platformpurple.com/api/stats/events4Environment'

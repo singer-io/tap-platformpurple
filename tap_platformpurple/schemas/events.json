@@ -1,0 +1,137 @@
+{
+  "type": "object",
+  "inclusion": "available",
+  "selected-by-default": false,
+  "properties": {
+    "docID": {
+      "type": "string",
+      "inclusion": "automatic"
+    },
+    "dateTime": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "inclusion": "available"
+    },
+    "referer": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "productID": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "mediaEndSeconds": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "origin": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "sessionGroup": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "userID": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "clientTimestamp": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "productName": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "elapsed": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "lastUpdated": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "productSKU": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "osVersion": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "browser": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "browserVersion": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "userEmail": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "chapterTitle": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "timestamp": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "os": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "receivedTimestamp": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "mediaStartSeconds": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "cpu": {
+      "type": ["null", "object"],
+      "inclusion": "available",
+      "properties": {
+        "architecture": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "mediaType": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "eventType": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "referrer": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "environment": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "publisherID": {
+      "type": ["null", "integer"],
+      "inclusion": "available"
+    },
+    "anonymousUserID": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "appVersionNumber": {
+      "type": ["null", "string"],
+      "inclusion": "available"
+    },
+    "firstVisitToEnvironment": {
+      "type": ["null", "boolean"],
+      "inclusion": "available"
+    }
+  }
+}
