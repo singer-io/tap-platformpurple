@@ -14,48 +14,7 @@ LOGGER = singer.get_logger()
 class BasePlatformPurpleStream(BaseStream):
 
     def get_stream_data(self, data):
-        return [self.process(item) for item in data]
-
-    def select_keys(self, data):
-        catalog_entry = self.catalog
-        to_return = {}
-
-        for k, v in data.items():
-            schema = catalog_entry.schema.properties.get(k)
-
-            if schema.inclusion == 'automatic' or schema.selected:
-                to_return[k] = v
-
-        return to_return
-
-    def convert_types(self, data):
-        catalog_entry = self.catalog
-        to_return = {}
-
-        for k, v in data.items():
-            schema = catalog_entry.schema.properties.get(k)
-            datatype = schema.type
-            is_datetime = schema.format == 'date-time'
-
-            if not v:
-                to_return[k] = None
-            elif is_datetime:
-                to_return[k] = parse(v).strftime('%Y-%m-%dT%H:%M:%SZ')
-            elif "integer" in datatype:
-                to_return[k] = int(v)
-            elif "number" in datatype:
-                to_return[k] = float(v)
-            else:
-                to_return[k] = v
-
-        return to_return
-
-    def process(self, data):
-        return \
-            self.convert_types(
-                self.select_keys(
-                    self.filter_keys(
-                        data)))
+        return [self.transform_record(item) for item in data]
 
     def sync_data(self):
         table = self.TABLE
@@ -67,9 +26,10 @@ class BasePlatformPurpleStream(BaseStream):
             start_date = get_config_start_date(self.config)
 
         end_date = start_date + datetime.timedelta(days=7)
-        max_date = start_date
 
         while not done:
+            max_date = start_date
+
             LOGGER.info(
                 "Querying {} starting at {}".format(table, start_date))
 
@@ -100,10 +60,14 @@ class BasePlatformPurpleStream(BaseStream):
             self.state = incorporate(
                 self.state, table, 'start_date', start_date)
 
-            if start_date == max_date:
+            if start_date == max_date and len(to_write) == 1:
                 done = True
 
-            start_date = max_date
+            if len(to_write) == 0:
+                start_date = end_date
+            else:
+                start_date = max_date
+
             end_date = start_date + datetime.timedelta(days=7)
 
             save_state(self.state)

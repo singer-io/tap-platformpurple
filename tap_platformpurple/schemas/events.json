@@ -1,100 +1,75 @@
 {
   "type": "object",
-  "inclusion": "available",
-  "selected-by-default": false,
   "properties": {
     "docID": {
-      "type": "string",
-      "inclusion": "automatic"
+      "type": "string"
     },
     "dateTime": {
       "type": ["null", "string"],
-      "format": "date-time",
-      "inclusion": "available"
+      "format": "date-time"
     },
     "referer": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "productID": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "mediaEndSeconds": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "origin": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "sessionGroup": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "userID": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "clientTimestamp": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "productName": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "elapsed": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "lastUpdated": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "productSKU": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "osVersion": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "browser": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "browserVersion": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "userEmail": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "chapterTitle": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "timestamp": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "os": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "receivedTimestamp": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "mediaStartSeconds": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "cpu": {
       "type": ["null", "object"],
-      "inclusion": "available",
       "properties": {
         "architecture": {
           "type": ["null", "string"]
@@ -102,36 +77,28 @@
       }
     },
     "mediaType": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "eventType": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "referrer": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "environment": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "publisherID": {
-      "type": ["null", "integer"],
-      "inclusion": "available"
+      "type": ["null", "integer"]
     },
     "anonymousUserID": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "appVersionNumber": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "firstVisitToEnvironment": {
-      "type": ["null", "boolean"],
-      "inclusion": "available"
+      "type": ["null", "boolean"]
     }
   }
 }

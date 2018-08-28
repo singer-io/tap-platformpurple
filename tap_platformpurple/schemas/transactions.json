@@ -1,44 +1,33 @@
 {
   "type": "object",
-  "inclusion": "available",
-  "selected-by-default": false,
   "properties": {
     "transactionID": {
-      "type": "integer",
-      "inclusion": "automatic"
+      "type": "integer"
     },
     "dateTime": {
       "type": ["null", "string"],
-      "format": "date-time",
-      "inclusion": "available"
+      "format": "date-time"
     },
     "productID": {
-      "type": ["null", "number"],
-      "inclusion": "available"
+      "type": ["null", "number"]
     },
     "productSoldFor": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "productName": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "couponCodeUsed": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "userEmail": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "firstName": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     },
     "lastName": {
-      "type": ["null", "string"],
-      "inclusion": "available"
+      "type": ["null", "string"]
     }
   }
 }

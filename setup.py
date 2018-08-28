@@ -10,11 +10,7 @@ setup(name='tap-platformpurple',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_platformpurple'],
       install_requires=[
-          'singer-python==5.0.12',
-          'backoff==1.3.2',
-          'requests==2.18.4',
-          'funcy==1.10.1',
-          'tap-framework==0.0.2',
+          'tap-framework==0.0.3',
           'pytz',
       ],
       entry_points='''
