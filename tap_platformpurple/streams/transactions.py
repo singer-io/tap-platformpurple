@@ -7,7 +7,10 @@ class TransactionsStream(BasePlatformPurpleStream):
     API_METHOD = 'POST'
 
     def get_stream_data(self, data):
-        return [self.process(item) for item in data.get('data')]
+        return [self.transform_record(item) for item in data.get('data')]
 
     def get_url(self):
         return 'https://api-v4.platformpurple.com/api/stats/transactions4Org'
+
+    def get_filters(self):
+        return None

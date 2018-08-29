@@ -10,7 +10,7 @@ setup(name='tap-platformpurple',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_platformpurple'],
       install_requires=[
-          'tap-framework==0.0.3',
+          'tap-framework==0.0.4',
           'pytz',
       ],
       entry_points='''

@@ -20,12 +20,13 @@ class BasePlatformPurpleStream(BaseStream):
         table = self.TABLE
         done = False
 
+        filters = self.get_filters()
         start_date = get_last_record_value_for_table(self.state, table)
 
         if start_date is None:
             start_date = get_config_start_date(self.config)
 
-        end_date = start_date + datetime.timedelta(days=7)
+        end_date = start_date + datetime.timedelta(days=1)
 
         while not done:
             max_date = start_date
@@ -33,16 +34,18 @@ class BasePlatformPurpleStream(BaseStream):
             LOGGER.info(
                 "Querying {} starting at {}".format(table, start_date))
 
+            body = {
+                'startMSeconds': int(start_date.timestamp() * 1000),
+                'endMSeconds': int(end_date.timestamp() * 1000)
+            }
+
+            if filters is not None:
+                body['filters'] = filters
+
             response = self.client.make_request(
                 self.get_url(),
                 'POST',
-                body={
-                    'filters': {
-                        'environment': self.config.get('environment')
-                    },
-                    'startMSeconds': int(start_date.timestamp() * 1000),
-                    'endMSeconds': int(end_date.timestamp() * 1000)
-                })
+                body=body)
 
             to_write = self.get_stream_data(response)
 
@@ -60,11 +63,13 @@ class BasePlatformPurpleStream(BaseStream):
             self.state = incorporate(
                 self.state, table, 'start_date', start_date)
 
-            if start_date == max_date and len(to_write) == 1:
+            if max_date > datetime.datetime.now(pytz.UTC):
                 done = True
 
             if len(to_write) == 0:
                 start_date = end_date
+            elif start_date == max_date:
+                start_date = start_date + datetime.timedelta(microseconds=1)
             else:
                 start_date = max_date
 

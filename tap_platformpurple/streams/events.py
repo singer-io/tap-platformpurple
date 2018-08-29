@@ -8,3 +8,8 @@ class EventsStream(BasePlatformPurpleStream):
 
     def get_url(self):
         return 'https://api-v4.platformpurple.com/api/stats/events4Environment'
+
+    def get_filters(self):
+        return {
+            'environment': self.config.get('environment')
+        }
