@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='tap-platformpurple',
       version='0.0.1',
@@ -11,10 +11,14 @@ setup(name='tap-platformpurple',
       py_modules=['tap_platformpurple'],
       install_requires=[
           'tap-framework==0.0.4',
-          'pytz',
       ],
       entry_points='''
           [console_scripts]
           tap-platformpurple=tap_platformpurple:main
       ''',
-      packages=['tap_platformpurple'])
+      packages=find_packages(),
+      package_data={
+          'tap_platformpurple': [
+              'schemas/*.json'
+          ]
+      })
