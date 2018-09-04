@@ -13,7 +13,7 @@ class PlatformPurpleRunner(tap_framework.Runner):
 @singer.utils.handle_top_exception(LOGGER)
 def main():
     args = singer.utils.parse_args(
-        required_config_keys=['api_key', 'start_date'])
+        required_config_keys=['api_key', 'start_date', 'environment'])
 
     client = tap_platformpurple.client.PlatformPurpleClient(args.config)
 
