@@ -25,6 +25,8 @@ class BasePlatformPurpleStream(BaseStream):
 
         if start_date is None:
             start_date = get_config_start_date(self.config)
+        else:
+            start_date = start_date.replace(tzinfo=pytz.UTC)
 
         end_date = start_date + datetime.timedelta(days=1)
 
@@ -69,7 +71,7 @@ class BasePlatformPurpleStream(BaseStream):
             if len(to_write) == 0:
                 start_date = end_date
             elif start_date == max_date:
-                start_date = start_date + datetime.timedelta(microseconds=1)
+                start_date = start_date + datetime.timedelta(milliseconds=1)
             else:
                 start_date = max_date
 
