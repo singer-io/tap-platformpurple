@@ -69,10 +69,18 @@ class BasePlatformPurpleStream(BaseStream):
                 done = True
 
             if len(to_write) == 0:
-                start_date = end_date
+                LOGGER.info("Advancing one full interval.")
+
+                if end_date > datetime.datetime.now(pytz.UTC):
+                    done = True
+                else:
+                    start_date = end_date
+
             elif start_date == max_date:
+                LOGGER.info("Advancing one millisecond.")
                 start_date = start_date + datetime.timedelta(milliseconds=1)
             else:
+                LOGGER.info("Advancing by one page.")
                 start_date = max_date
 
             end_date = start_date + datetime.timedelta(days=7)
