@@ -1,3 +1,8 @@
+# Changelog
+
+## 1.0.0
+- Initial Release
+
 ## 0.0.3
 
 - Don't advance state file past current date
