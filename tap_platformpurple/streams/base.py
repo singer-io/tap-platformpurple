@@ -18,6 +18,27 @@ class BasePlatformPurpleStream(BaseStream):
 
     def sync_data(self):
         table = self.TABLE
+
+        LOGGER.info("Querying {}.".format(table))
+
+        response = self.client.make_request(
+            self.get_url(),
+            'POST',
+            body=self.get_filters()
+        )
+
+        to_write = self.get_stream_data(response)
+
+        with singer.metrics.record_counter(endpoint=table) as ctr:
+            singer.write_records(table, to_write)
+
+            ctr.increment(amount=len(to_write))
+
+
+class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
+
+    def sync_data(self):
+        table = self.TABLE
         done = False
 
         filters = self.get_filters()
