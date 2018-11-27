@@ -99,6 +99,9 @@
     },
     "firstVisitToEnvironment": {
       "type": ["null", "boolean"]
+    },
+    "emailParameter": {
+      "type": ["null", "string"]
     }
   }
 }

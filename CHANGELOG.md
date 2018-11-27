@@ -1,7 +1,17 @@
 # Changelog
 
+## 1.0.1
+
+- Merge 0.0.4 into 1.0.0
+
 ## 1.0.0
+
 - Initial Release
+
+## 0.0.4
+
+- Add Products endpoint
+- Add missing fields to Events, Transactions endpoints
 
 ## 0.0.3
 

@@ -28,6 +28,15 @@
     },
     "lastName": {
       "type": ["null", "string"]
+    },
+    "partnerAmount": {
+      "type": ["null", "number"]
+    },
+    "freeTrialDuration": {
+      "type": ["null", "string"]
+    },
+    "ccTransaction": {
+      "type": ["null", "number"]
     }
   }
 }

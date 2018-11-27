@@ -1,7 +1,7 @@
-from tap_platformpurple.streams.base import BasePlatformPurpleStream
+from tap_platformpurple.streams.base import BaseDatePaginatedPlatformPurpleStream
 
 
-class TransactionsStream(BasePlatformPurpleStream):
+class TransactionsStream(BaseDatePaginatedPlatformPurpleStream):
     TABLE = 'transactions'
     KEY_PROPERTIES = ["transactionID"]
     API_METHOD = 'POST'

@@ -1,7 +1,7 @@
-from tap_platformpurple.streams.base import BasePlatformPurpleStream
+from tap_platformpurple.streams.base import BaseDatePaginatedPlatformPurpleStream
 
 
-class EventsStream(BasePlatformPurpleStream):
+class EventsStream(BaseDatePaginatedPlatformPurpleStream):
     TABLE = 'events'
     KEY_PROPERTIES = ["docID"]
     API_METHOD = 'POST'
