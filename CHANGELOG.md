@@ -1,3 +1,8 @@
+## 0.0.4
+
+- Add Products endpoint
+- Add missing fields to Events, Transactions endpoints
+
 ## 0.0.3
 
 - Don't advance state file past current date
