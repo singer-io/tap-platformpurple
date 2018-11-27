@@ -46,4 +46,4 @@ Step 4 a file called `catalog.json` that specifies all the available endpoints a
 tap-platformpurple -c config.json --properties catalog.json
 ```
 
-Copyright &copy; 2018 Fishtown Analytics
+Copyright &copy; 2018 Stitch
