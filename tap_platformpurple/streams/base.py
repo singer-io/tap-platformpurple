@@ -49,7 +49,7 @@ class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
         else:
             start_date = start_date.replace(tzinfo=pytz.UTC)
 
-        end_date = start_date + datetime.timedelta(days=1)
+        end_date = start_date + datetime.timedelta(hours=1)
 
         while not done:
             max_date = start_date
