@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(name='tap-platformpurple',
-      version='1.0.1',
+      version='1.0.2',
       description='Singer.io tap for extracting data from the Platform Purple API',
       author='Fishtown Analytics',
       url='http://fishtownanalytics.com',

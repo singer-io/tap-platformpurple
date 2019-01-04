@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Paginate by hour instead of per day [#2](https://github.com/singer-io/tap-platformpurple/pull/2)
+
 ## 1.0.1
 
 - Merge 0.0.4 into 1.0.0
