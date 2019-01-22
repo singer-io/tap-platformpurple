@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Fix to paginate by hour [#3](https://github.com/singer-io/tap-platformpurple/pull/3)
+
 ## 1.0.2
 
 - Paginate by hour instead of per day [#2](https://github.com/singer-io/tap-platformpurple/pull/2)
