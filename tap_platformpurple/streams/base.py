@@ -104,6 +104,6 @@ class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
                 LOGGER.info("Advancing by one page.")
                 start_date = max_date
 
-            end_date = start_date + datetime.timedelta(days=7)
+            end_date = start_date + datetime.timedelta(hours=1)
 
             save_state(self.state)
