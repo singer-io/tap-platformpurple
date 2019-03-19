@@ -4,6 +4,9 @@
     "transactionID": {
       "type": "integer"
     },
+    "transactionType": {
+      "type": ["null", "string"]
+    },
     "dateTime": {
       "type": ["null", "string"],
       "format": "date-time"
