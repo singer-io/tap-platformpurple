@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Add `transactionType` field to `Transactions` stream [#4](https://github.com/singer-io/tap-platformpurple/pull/4)
+
 ## 1.0.3
 
 - Fix to paginate by hour [#3](https://github.com/singer-io/tap-platformpurple/pull/3)
