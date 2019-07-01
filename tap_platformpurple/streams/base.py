@@ -5,14 +5,12 @@ import singer
 from dateutil.parser import parse
 from tap_framework.streams import BaseStream
 from tap_framework.config import get_config_start_date
-from tap_framework.state import get_last_record_value_for_table, incorporate, \
-    save_state
+from tap_framework.state import get_last_record_value_for_table, incorporate, save_state
 
 LOGGER = singer.get_logger()
 
 
 class BasePlatformPurpleStream(BaseStream):
-
     def get_stream_data(self, data):
         return [self.transform_record(item) for item in data]
 
@@ -22,9 +20,7 @@ class BasePlatformPurpleStream(BaseStream):
         LOGGER.info("Querying {}.".format(table))
 
         response = self.client.make_request(
-            self.get_url(),
-            'POST',
-            body=self.get_filters()
+            self.get_url(), "POST", body=self.get_filters()
         )
 
         to_write = self.get_stream_data(response)
@@ -36,6 +32,8 @@ class BasePlatformPurpleStream(BaseStream):
 
 
 class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
+    def get_time_for_state(self, item):
+        return parse(item.get("dateTime"))
 
     def sync_data(self):
         table = self.TABLE
@@ -54,21 +52,17 @@ class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
         while not done:
             max_date = start_date
 
-            LOGGER.info(
-                "Querying {} starting at {}".format(table, start_date))
+            LOGGER.info("Querying {} starting at {}".format(table, start_date))
 
             body = {
-                'startMSeconds': int(start_date.timestamp() * 1000),
-                'endMSeconds': int(end_date.timestamp() * 1000)
+                "startMSeconds": int(start_date.timestamp() * 1000),
+                "endMSeconds": int(end_date.timestamp() * 1000),
             }
 
             if filters is not None:
-                body['filters'] = filters
+                body["filters"] = filters
 
-            response = self.client.make_request(
-                self.get_url(),
-                'POST',
-                body=body)
+            response = self.client.make_request(self.get_url(), "POST", body=body)
 
             to_write = self.get_stream_data(response)
 
@@ -78,13 +72,9 @@ class BaseDatePaginatedPlatformPurpleStream(BasePlatformPurpleStream):
                 ctr.increment(amount=len(to_write))
 
                 for item in to_write:
-                    max_date = max(
-                        max_date,
-                        parse(item.get('dateTime'))
-                    )
+                    max_date = max(max_date, self.get_time_for_state(item))
 
-            self.state = incorporate(
-                self.state, table, 'start_date', start_date)
+            self.state = incorporate(self.state, table, "start_date", start_date)
 
             if max_date > datetime.datetime.now(pytz.UTC):
                 done = True
