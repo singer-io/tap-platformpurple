@@ -40,6 +40,9 @@
     },
     "ccTransaction": {
       "type": ["null", "number"]
+    },
+    "processorTransactionID": {
+      "type": ["null", "string"]
     }
   }
 }

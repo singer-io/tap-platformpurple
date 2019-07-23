@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "userEmail": {
+      "type": "string"
+    },
+    "productID": {
+      "type": "string"
+    },
+    "startDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "productName": {
+      "type": ["string", "null"]
+    },
+    "endDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "nextRenewalDate": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "recurringAmount": {
+      "type": ["string", "null"]
+    },
+    "lastUpdate": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "currentStatus": {
+      "type": ["integer", "null"]
+    }
+  }
+}
+  
